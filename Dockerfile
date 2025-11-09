@@ -29,6 +29,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 # Dummy env vars for build (will be overridden at runtime)
 ENV STRIPE_SECRET_KEY=dummy_for_build
+ENV SUPABASE_SERVICE_ROLE_KEY=dummy_for_build
 ENV NEXT_PUBLIC_SUPABASE_URL=dummy_for_build
 ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_for_build
 
