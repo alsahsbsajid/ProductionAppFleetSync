@@ -75,6 +75,13 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Skip static page generation for API routes during build
+  experimental: {
+    ...nextConfig.experimental,
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+  },
 
   // Security headers
   async headers() {
