@@ -1,0 +1,73 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds
+.next
+out
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Development files
+*.tsbuildinfo
+.eslintcache
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Testing
+coverage
+.nyc_output
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Deployment files
+fleetsync-deploy.zip
+fleetsync-deploy.tar.gz
+deployment-temp
+
+# Documentation (keep README.md for Docker context)
+# README.md
+
+# Scripts
+scripts/
+deploy-*.sh
+deploy-*.ps1
+
+# Debug files
+public/debug/
+
+# Other
+.vercel
+.turbo 
