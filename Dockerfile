@@ -18,13 +18,13 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Set build-time environment variables (dummy values for build)
+# Set build-time environment variables (dummy values for build - must be valid URLs)
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
-ENV STRIPE_SECRET_KEY=dummy_for_build
-ENV SUPABASE_SERVICE_ROLE_KEY=dummy_for_build
-ENV NEXT_PUBLIC_SUPABASE_URL=dummy_for_build
-ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_for_build
+ENV STRIPE_SECRET_KEY=sk_test_dummy_for_build_1234567890
+ENV SUPABASE_SERVICE_ROLE_KEY=dummy_service_role_key_for_build
+ENV NEXT_PUBLIC_SUPABASE_URL=https://dummy.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_anon_key_for_build_1234567890abcdef
 
 # Build the application
 RUN npm run build

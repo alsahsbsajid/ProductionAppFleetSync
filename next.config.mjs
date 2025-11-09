@@ -3,6 +3,10 @@ const nextConfig = {
   // Production optimizations
   output: 'standalone',
   poweredByHeader: false,
+  // Skip static generation for not-found page during build
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
 
   // External packages for server components
 
