@@ -4,10 +4,12 @@ import { withSecurity, validateInput, sanitizeInput, SecurityLogger } from '@/li
 
 // Initialize Stripe - lazy initialization to avoid build-time errors
 function getStripe() {
-  if (!process.env.STRIPE_SECRET_KEY) {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  // Allow dummy values during build
+  if (!secretKey || secretKey === 'dummy_for_build') {
     throw new Error('STRIPE_SECRET_KEY is not configured');
   }
-  return new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  return new Stripe(secretKey, {
     apiVersion: '2023-10-16',
   });
 }

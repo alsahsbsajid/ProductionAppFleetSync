@@ -34,10 +34,12 @@ ENV NEXT_PUBLIC_SUPABASE_URL=dummy_for_build
 ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_for_build
 
 # Build the application
+# Set SKIP_ENV_VALIDATION to allow build with dummy env vars
+ENV SKIP_ENV_VALIDATION=true
 RUN \
-  if [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else npm run build; \
+  if [ -f package-lock.json ]; then npm run build || (echo "Build failed, checking logs..." && exit 1); \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build || (echo "Build failed, checking logs..." && exit 1); \
+  else npm run build || (echo "Build failed, checking logs..." && exit 1); \
   fi
 
 # Production image, copy all the files and run next
