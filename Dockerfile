@@ -30,8 +30,8 @@ ENV NODE_ENV production
 
 # Build the application
 RUN \
-  if [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
+  if [ -f package-lock.json ]; then npm run build; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
   else npm run build; \
   fi
 
