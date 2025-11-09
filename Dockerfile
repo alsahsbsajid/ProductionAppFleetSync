@@ -25,8 +25,12 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Environment variables for build
-ENV NEXT_TELEMETRY_DISABLED 1
-ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+# Dummy env vars for build (will be overridden at runtime)
+ENV STRIPE_SECRET_KEY=dummy_for_build
+ENV NEXT_PUBLIC_SUPABASE_URL=dummy_for_build
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_for_build
 
 # Build the application
 RUN \
